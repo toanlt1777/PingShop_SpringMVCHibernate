@@ -1,17 +1,19 @@
 package edu.poly.bean;
 
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -26,7 +28,7 @@ public class Product {
 	@Column(name="productName")
 	private String productName;
 	@Column(name="quantity")
-	private Integer Quantity;
+	private Integer quantity;
 	@Column(name="price")
 	private Double price;
 	@NotEmpty(message="Can not be empty Photo !")
@@ -49,6 +51,10 @@ public class Product {
 	@NotEmpty(message="Can not be empty status !")
 	@Column(name="status")
 	private String status;
+//	@OneToMany(mappedBy="product",fetch=FetchType.EAGER)
+//	private Collection<Order> orders;
+//	@OneToMany(mappedBy="products",fetch=FetchType.EAGER)
+//	private Collection<Delivery> deliverys;
 	@ManyToOne
 	@JoinColumn(name = "categoryId")
 	private Category categorys;
@@ -65,10 +71,10 @@ public class Product {
 		this.productName = productName;
 	}
 	public Integer getQuantity() {
-		return Quantity;
+		return quantity;
 	}
 	public void setQuantity(Integer quantity) {
-		Quantity = quantity;
+		this.quantity = quantity;
 	}
 	public Double getPrice() {
 		return price;
@@ -118,11 +124,22 @@ public class Product {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+//	public Collection<Order> getOrders() {
+//		return orders;
+//	}
+//	public void setOrders(Collection<Order> orders) {
+//		this.orders = orders;
+//	}
+//	public Collection<Delivery> getDeliverys() {
+//		return deliverys;
+//	}
+//	public void setDeliverys(Collection<Delivery> deliverys) {
+//		this.deliverys = deliverys;
+//	}
 	public Category getCategorys() {
 		return categorys;
 	}
 	public void setCategorys(Category categorys) {
 		this.categorys = categorys;
 	}
-	
 }

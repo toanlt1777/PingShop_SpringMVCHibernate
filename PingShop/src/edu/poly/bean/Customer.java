@@ -1,12 +1,17 @@
-/*package edu.poly.bean;
+package edu.poly.bean;
 
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Past;
@@ -17,6 +22,8 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
+@Entity
+@Table(name="customer")
 public class Customer {
 	@Id
 	@GeneratedValue
@@ -50,10 +57,13 @@ public class Customer {
 	@Size(min=10, max=11,message="The Telephone must be more than 10 and less than 11 number !")
 	@Column(name = "phone")
 	private String phone;
-	@ManyToOne
-	@JoinColumn(name = "username")
-	private Account account;
-	
+//	@OneToMany(mappedBy="customer",fetch=FetchType.EAGER)
+//	private Collection<Order> orders;
+//	@OneToMany(mappedBy="customers",fetch=FetchType.EAGER)
+//	private Collection<Delivery> deliverys;
+//	@ManyToOne
+//	@JoinColumn(name = "username")
+//	private Account accounts;
 	public Integer getId() {
 		return id;
 	}
@@ -108,11 +118,24 @@ public class Customer {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public Account getAccount() {
-		return account;
-	}
-	public void setAccount(Account account) {
-		this.account = account;
-	}
+//	public Collection<Order> getOrders() {
+//		return orders;
+//	}
+//	public void setOrders(Collection<Order> orders) {
+//		this.orders = orders;
+//	}
+//	public Collection<Delivery> getDeliverys() {
+//		return deliverys;
+//	}
+//	public void setDeliverys(Collection<Delivery> deliverys) {
+//		this.deliverys = deliverys;
+//	}
+//	public Account getAccounts() {
+//		return accounts;
+//	}
+//	public void setAccounts(Account accounts) {
+//		this.accounts = accounts;
+//	}
+	
+	
 }
-*/

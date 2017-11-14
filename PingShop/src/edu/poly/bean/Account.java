@@ -1,9 +1,14 @@
 package edu.poly.bean;
 
 
+import java.util.Collection;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -24,8 +29,8 @@ public class Account {
 	@NotBlank(message="Can not be empty roles !")
 	@Column(name="role")
 	private String role;
-	/*@OneToMany(mappedBy="Customer",fetch=FetchType.EAGER)
-	private Collection<Account> account;*/
+	/*@OneToMany(mappedBy="accounts",cascade = CascadeType.ALL,fetch=FetchType.EAGER)
+	private Collection<Customer> customers;*/
 	public String getUsername() {
 		return username;
 	}
@@ -44,10 +49,10 @@ public class Account {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	/*public Collection<Account> getAccount() {
-		return account;
+	/*public Collection<Customer> getCustomers() {
+		return customers;
 	}
-	public void setAccount(Collection<Account> account) {
-		this.account = account;
+	public void setCustomers(Collection<Customer> customers) {
+		this.customers = customers;
 	}*/
 }
