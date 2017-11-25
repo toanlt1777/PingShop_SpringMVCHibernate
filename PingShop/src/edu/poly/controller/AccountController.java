@@ -85,6 +85,7 @@ public class AccountController {
 	public String edit1(ModelMap model,  @RequestParam("username") String username) {
 		Session session = factory.getCurrentSession();
 		Account account = (Account) session.get(Account.class,new String(username));
+		model.addAttribute("showform","show");
 		model.addAttribute("account", account);
 		return "accountManager";
 	}

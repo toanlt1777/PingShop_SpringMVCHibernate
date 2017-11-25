@@ -97,33 +97,45 @@ public class ProductController {
 		model.addAttribute("products", getProduct());
 		return "productManager";
 	}
-	/*@RequestMapping(params = "lnkEdit")
-	public String edit1(ModelMap model,  @RequestParam("username") String username) {
+	@RequestMapping(params = "lnkEdit")
+	public String edit1(ModelMap model,  @RequestParam("productId") String productId) {
 		Session session = factory.getCurrentSession();
-		Account account = (Account) session.get(Account.class,new String(username));
-		model.addAttribute("account", account);
-		return "accountManager";
+		Product product = (Product) session.get(Product.class,new String(productId));
+		model.addAttribute("showform","show");
+		model.addAttribute("product", product);
+		return "productManager";
 	}
-	public String delete(ModelMap model, @ModelAttribute("account") Account accounts) {
+	public String delete(ModelMap model, @ModelAttribute("product") Product products) {
 		Session session = factory.openSession();
 		String redirect;
 		Transaction transaction = session.beginTransaction();
 		try {
-			session.delete(accounts);
+			session.delete(products);
 			transaction.commit();
-			model.addAttribute("message1", "Delete account successful ! Where username = "+ accounts.getUsername());
-			redirect= "accountManager";
+			model.addAttribute("message1", "Delete Product successful ! Where productId = "+ products.getProductId());
+			redirect= "productManager";
 		} catch (Exception e) {
 			transaction.rollback();
-			redirect= "accountManager";
+			redirect= "productManager";
 		}
 		session.close();
-		model.addAttribute("account", new Account());
-		model.addAttribute("accounts", getAccount());
-		return "accountManager";
+		model.addAttribute("product", new Product());
+		model.addAttribute("products", getProduct());
+		return "productManager";
 	}
 	@RequestMapping(params = "lnkDelete")
-	public String delete1(ModelMap model,String username, @ModelAttribute("account") Account accounts) {
-		return delete(model, accounts);
+	public String delete1(ModelMap model,String productId, @ModelAttribute("product") Product products) {
+		return delete(model, products);
+	}
+	/*@RequestMapping("showProductByCategoryId")
+	public String showProductByCategoryId(ModelMap model, String categoryId ) {
+		Session session = factory.getCurrentSession();
+		String hql = "SELECT from Product where categoryId =:categoryId";
+		Query query = session.createQuery(hql);
+		query.setParameter("categoryId", categoryId);
+		@SuppressWarnings("unchecked")
+		List<Object[]> list = query.list();
+		model.addAttribute("list", list);
+		return "list";
 	}*/
 }

@@ -79,9 +79,8 @@
 								</div>
 							</div>
 							<div class="login-footer">
-								<img class="img-responsive inline-block"
-									src="<c:url value="/resources/"/>assets/images/logo/logo.png"
-									" width="100"> <span
+								<img class="img-responsive inline-block" width="100"
+									src="<c:url value="/resources/"/>assets/images/logo/logo.png"><span
 									class="font-size-13 pull-right pdd-top-10">Don't have an
 									account? <a href="sign-in.html">Sign Up Now</a>
 								</span>

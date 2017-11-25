@@ -2,6 +2,7 @@ package edu.poly.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 
 import org.hibernate.Query;
@@ -39,9 +40,16 @@ public class HomeController {
 		return list3;
 	}
 	@ModelAttribute("products")
-	public List<Product> getProduct() {
-		Session session = factory.getCurrentSession();
+	public List<Product> getProduct(HttpServletRequest httpServletRequest) {
+		String categoryId = httpServletRequest.getParameter("categoryId");
 		String hql = "from Product";
+		if(categoryId==null) {
+			hql = "from Product";
+		}
+		else {
+			hql = "from Product where categorys.categoryId = '"+categoryId+"'";
+		}
+		Session session = factory.getCurrentSession();
 		Query query = session.createQuery(hql);
 		@SuppressWarnings("unchecked")
 		List<Product> list = query.list();
@@ -50,7 +58,7 @@ public class HomeController {
 	public List<Product> getProduct1(String categoryId) {
 		Session session = factory.getCurrentSession();
 		Transaction transaction = session.beginTransaction();
-		Query query = (Query) session.createQuery("from Product where categoryId =: category Id");
+		Query query = (Query) session.createQuery("from Product where categoryId =:categoryId");
 		query.setString("categoryId", categoryId);
 		List<Product> listProduct = query.list();
 		transaction.commit();
