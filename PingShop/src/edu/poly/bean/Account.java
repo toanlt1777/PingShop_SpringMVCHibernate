@@ -19,7 +19,7 @@ import org.hibernate.validator.constraints.NotBlank;
 public class Account {
 	@Id
 	@Size(min=5, max=15,message="The username must be more than 5 and less than 15 characters long !")
-	@NotBlank(message="Can not be empty username !")
+	@NotBlank(message="Username Can not be blank !")
 	@Column(name="username")
 	private String username;
 	@NotBlank(message="Password Can not be blank !")

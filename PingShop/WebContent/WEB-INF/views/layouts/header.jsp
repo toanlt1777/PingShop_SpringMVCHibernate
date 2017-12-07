@@ -90,13 +90,13 @@
 					</div></li>
 			</ul>
 			<ul class="nav-right">
-				<li class="user-profile dropdown"><a href="accountManager.poly"
+				<li class="user-profile dropdown"><a href=""
 					class="dropdown-toggle" data-toggle="dropdown"> <img
 						class="profile-img img-fluid"
 						src="<c:url value="/resources/"/>assets/images/user.jpg"">
 						<div class="user-info">
 							<span class="name pdd-right-5"> <%-- ${Logins.username} --%>
-								Administrator
+								${nguoidung }
 							</span> <i class="ti-angle-down font-size-10"></i>
 						</div>
 				</a>
@@ -111,7 +111,7 @@
 								class="ti-email pdd-right-10"></i> <span>Inbox</span>
 						</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="login.poly"> <i
+						<li><a href="logout.poly"> <i
 								class="ti-power-off pdd-right-10"></i> <span>Logout</span>
 						</a></li>
 					</ul></li>

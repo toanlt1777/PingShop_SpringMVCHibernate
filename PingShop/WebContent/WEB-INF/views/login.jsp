@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Ping Shop - Login Page</title>
+<title>Login Admin Page</title>
 <link rel="shortcut icon"
 	href='<c:url value="/resources/"/>images/3.ico'>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">

@@ -216,19 +216,12 @@
 													</div>
 												</div>
 											</c:if>
-											<p style="color: green;">${message1}</p>
-											<p style="color: red">${message}</p>
-											<%-- <form:errors path="productId"/>
-																			<form:errors path="productName"/>
-																			<form:errors path="quantity"/>
-																			<form:errors path="price"/>
-																			<form:errors path="photo"/>
-																			<form:errors path="sale"/>
-																			<form:errors path="decription"/>
-																			<form:errors path="manufacture"/>
-																			<form:errors path="manufacturingDate"/>
-																			<form:errors path="expiryDate"/>
-																			<form:errors path="status"/> --%>
+											<form:form action="productManager.poly"
+												modelAttribute="product">
+												<p style="color: green;">${message1}</p>
+												<p style="color: red">${message}</p>
+												<form:errors path="*" element="ul"/>
+											</form:form>
 											<!-- Modal START-->
 											<div class="modal fade" id="modal-lg">
 												<div class="modal-dialog modal-lg" role="document">
@@ -237,224 +230,223 @@
 															<h4>Add Product</h4>
 														</div>
 														<div class="card-block">
-																<div class="row">
-																	<div class="col-md-8 ml-auto mr-auto">
-																		<form:form action="productManager.poly"
-																			modelAttribute="product"
-																			class="form-horizontal mrg-top-40 pdd-right-30">
-																			<div class="row">
-																				<div class="col-md-6">
-																					<div class="form-group">
-																						<label>ID</label>
-																						<form:input path="productId" type="text"
-																							class="form-control" placeholder="Product ID" />
-																					</div>
-																				</div>
-																				<div class="col-md-6">
-																					<div class="form-group">
-																						<label>Name</label>
-																						<form:input path="productName" type="text"
-																							class="form-control" placeholder="Product Name" />
-																					</div>
+															<div class="row">
+																<div class="col-md-8 ml-auto mr-auto">
+																	<form:form action="productManager.poly"
+																		modelAttribute="product"
+																		class="form-horizontal mrg-top-40 pdd-right-30">
+																		<div class="row">
+																			<div class="col-md-6">
+																				<div class="form-group">
+																					<label>ID</label>
+																					<form:input path="productId" type="text"
+																						class="form-control" placeholder="Product ID" />
 																				</div>
 																			</div>
-																			<div class="row">
-																				<div class="col-md-12">
-																					<div class="form-group">
-																						<label>Quantity</label>
-																						<form:input type="nunmber" path="quantity"
-																							class="form-control" placeholder="Quantity" />
-																					</div>
+																			<div class="col-md-6">
+																				<div class="form-group">
+																					<label>Name</label>
+																					<form:input path="productName" type="text"
+																						class="form-control" placeholder="Product Name" />
 																				</div>
 																			</div>
-																			<div class="row">
-																				<div class="col-md-12">
-																					<div class="form-group">
-																						<label>Price</label>
-																						<form:input path="price" name="price"
-																							type="number" step="any" class="form-control"
-																							placeholder="Price" />
-																					</div>
+																		</div>
+																		<div class="row">
+																			<div class="col-md-12">
+																				<div class="form-group">
+																					<label>Quantity</label>
+																					<form:input type="nunmber" path="quantity"
+																						class="form-control" placeholder="Quantity" />
 																				</div>
 																			</div>
-																			<div class="row">
-																				<div class="col-md-12">
-																					<div class="form-group">
-																						<label>Photo</label>
-																						<form:input path="photo" name="photo" type="file"
-																							class="form-control" placeholder="Photo" />
-																					</div>
+																		</div>
+																		<div class="row">
+																			<div class="col-md-12">
+																				<div class="form-group">
+																					<label>Price</label>
+																					<form:input path="price" name="price" type="number"
+																						step="any" class="form-control"
+																						placeholder="Price" />
 																				</div>
 																			</div>
-																			<div class="row">
-																				<div class="col-md-12">
-																					<div class="form-group">
-																						<label>Sale</label>
-																						<form:input path="sale" name="sale" type="text"
-																							class="form-control" placeholder="Sale" />
-																					</div>
+																		</div>
+																		<div class="row">
+																			<div class="col-md-12">
+																				<div class="form-group">
+																					<label>Photo</label>
+																					<form:input path="photo" name="photo" type="file"
+																						class="form-control" placeholder="Photo" />
 																				</div>
 																			</div>
-																			<div class="row">
-																				<div class="col-md-12">
-																					<div class="form-group">
-																						<label>Decription</label>
-																						<form:textarea path="decription" name="decription"
-																							type="text" class="form-control"
-																							placeholder="Decription" />
-																					</div>
+																		</div>
+																		<div class="row">
+																			<div class="col-md-12">
+																				<div class="form-group">
+																					<label>Sale</label>
+																					<form:input path="sale" name="sale" type="text"
+																						class="form-control" placeholder="Sale" />
 																				</div>
 																			</div>
-																			<div class="row">
-																				<div class="col-md-12">
-																					<div class="form-group">
-																						<label>Manufacture</label>
-																						<form:input path="manufacture" name="manufacture"
-																							type="text" class="form-control"
-																							placeholder="Manufacture" />
-																					</div>
+																		</div>
+																		<div class="row">
+																			<div class="col-md-12">
+																				<div class="form-group">
+																					<label>Decription</label>
+																					<form:textarea path="decription" name="decription"
+																						type="text" class="form-control"
+																						placeholder="Decription" />
 																				</div>
 																			</div>
-																			<div class="row">
-																				<div class="col-md-12">
-																					<div class="form-group">
-																						<label>Manufacturing Date</label>
-																						<div class="timepicker-input input-group">
-																							<span class="input-group-addon"> <i
-																								class="ti-calendar"></i>
-																							</span>
-																							<form:input path="manufacturingDate"
-																								name="manufacturingDate" type="text"
-																								data-provide="datepicker"
-																								class="form-control datepicker-1"
-																								placeholder="Manufacturing Date" />
-																						</div>
-																					</div>
+																		</div>
+																		<div class="row">
+																			<div class="col-md-12">
+																				<div class="form-group">
+																					<label>Manufacture</label>
+																					<form:input path="manufacture" name="manufacture"
+																						type="text" class="form-control"
+																						placeholder="Manufacture" />
 																				</div>
 																			</div>
-																			<div class="row">
-																				<div class="col-md-12">
-																					<div class="form-group">
-																						<label>Expiry Date</label>
-																						<div class="timepicker-input input-group">
-																							<span class="input-group-addon"> <i
-																								class="ti-calendar"></i>
-																							</span>
-																							<form:input path="expiryDate" name="expiryDate"
-																								type="text" class="form-control datepicker-1"
-																								placeholder="Expiry Date"
-																								data-provide="datepicker" />
-																						</div>
+																		</div>
+																		<div class="row">
+																			<div class="col-md-12">
+																				<div class="form-group">
+																					<label>Manufacturing Date</label>
+																					<div class="timepicker-input input-group">
+																						<span class="input-group-addon"> <i
+																							class="ti-calendar"></i>
+																						</span>
+																						<form:input path="manufacturingDate"
+																							name="manufacturingDate" type="text"
+																							data-provide="datepicker"
+																							class="form-control datepicker-1"
+																							placeholder="Manufacturing Date" />
 																					</div>
 																				</div>
 																			</div>
-																			<div class="row">
-																				<div class="col-md-12">
-																					<div class="form-group">
-																						<label>Status</label>
-																						<form:select class="form-control" id="sel1"
-																							path="status">
-																							<form:option value="enable">enable</form:option>
-																							<form:option value="dissable">disable</form:option>
-																						</form:select>
+																		</div>
+																		<div class="row">
+																			<div class="col-md-12">
+																				<div class="form-group">
+																					<label>Expiry Date</label>
+																					<div class="timepicker-input input-group">
+																						<span class="input-group-addon"> <i
+																							class="ti-calendar"></i>
+																						</span>
+																						<form:input path="expiryDate" name="expiryDate"
+																							type="text" class="form-control datepicker-1"
+																							placeholder="Expiry Date"
+																							data-provide="datepicker" />
 																					</div>
 																				</div>
 																			</div>
-																			<div class="row">
-																				<div class="col-md-12">
-																					<div class="form-group">
-																						<label>Category ID</label>
-																						<form:select class="form-control" id="sel1"
-																							path="categorys.categoryId" items="${categorys}"
-																							itemValue="categoryId" itemLabel="categoryId" />
-																					</div>
+																		</div>
+																		<div class="row">
+																			<div class="col-md-12">
+																				<div class="form-group">
+																					<label>Status</label>
+																					<form:select class="form-control" id="sel1"
+																						path="status">
+																						<form:option value="enable">enable</form:option>
+																						<form:option value="dissable">disable</form:option>
+																					</form:select>
 																				</div>
 																			</div>
-																			<div class="text-right">
-																				<form:button class="btn btn-default btn-sm"
-																					data-dismiss="modal">Cancel</form:button>
-																				<form:button type="submit" name="btn-insert"
-																					class="btn btn-primary btn-sm">Save</form:button>
+																		</div>
+																		<div class="row">
+																			<div class="col-md-12">
+																				<div class="form-group">
+																					<label>Category ID</label>
+																					<form:select class="form-control" id="sel1"
+																						path="categorys.categoryId" items="${categorys}"
+																						itemValue="categoryId" itemLabel="categoryId" />
+																				</div>
 																			</div>
-																		</form:form>
-																	</div>
+																		</div>
+																		<div class="text-right">
+																			<form:button class="btn btn-default btn-sm"
+																				data-dismiss="modal">Cancel</form:button>
+																			<form:button type="submit" name="btn-insert"
+																				class="btn btn-primary btn-sm">Save</form:button>
+																		</div>
+																	</form:form>
 																</div>
 															</div>
 														</div>
 													</div>
 												</div>
 											</div>
-											<table id="dt-opt" class="table table-responsive">
-												<thead>
+										</div>
+										<table id="dt-opt" class="table table-responsive">
+											<thead>
+												<tr>
+													<th>Product ID | Product Name | Photo</th>
+													<th>Quantity</th>
+													<th>Price</th>
+													<th>Decription</th>
+													<th>Manufacture</th>
+													<th>Manufacturing Date</th>
+													<th>ExpiryDate</th>
+													<th>Status</th>
+													<th>Category Name</th>
+													<th><i class="ti-settings pdd-right-10"></i> Action</th>
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach var="pro" items="${products}">
 													<tr>
-														<th>Product ID | Product Name | Photo</th>
-														<th>Quantity</th>
-														<th>Price</th>
-														<th>Decription</th>
-														<th>Manufacture</th>
-														<th>Manufacturing Date</th>
-														<th>ExpiryDate</th>
-														<th>Status</th>
-														<th>Category Name</th>
-														<th><i class="ti-settings pdd-right-10"></i> Action</th>
+														<td>
+															<div class="list-info mrg-top-10">
+																<img class="thumb-img"
+																	src="<c:url value="/resources/"/>images/${pro.photo}">
+																<div class="info">
+																	<span class="title">ID: ${pro.productId}</span> <span
+																		class="sub-title">${pro.productName}</span>
+																</div>
+															</div>
+														</td>
+														<td>
+															<div class="relative mrg-top-15">${pro.quantity}</div>
+														</td>
+														<td>
+															<div class="relative mrg-top-15">$ ${pro.price}</div>
+														</td>
+														<td>
+															<div class="relative mrg-top-15">${pro.decription}</div>
+														</td>
+														<td>
+															<div class="relative mrg-top-15">${pro.manufacture}</div>
+														</td>
+														<td>
+															<div class="relative mrg-top-15">${pro.manufacturingDate}</div>
+														</td>
+														<td>
+															<div class="relative mrg-top-15">${pro.expiryDate}</div>
+														</td>
+														<td>
+															<div class="relative mrg-top-15">${pro.status}</div>
+														</td>
+														<td>
+															<div class="relative mrg-top-15">${pro.categorys.categoryName}</div>
+														</td>
+														<td>
+															<!-- onclick="window.location.href='?lnkEdit&username=${u.username}'" -->
+															<div class="mrg-top-10 text-center">
+																<button type="button"
+																	onclick="window.location.href='?lnkEdit&productId=${pro.productId}'"
+																	class="btn btn-primary btn-rounded">
+																	<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+																</button>
+																<button type="button"
+																	class="btn btn-warning btn-rounded"
+																	onclick="window.location.href='<c:url value='?lnkDelete&productId=${pro.productId}' />'">
+																	<i class="fa fa-trash-o" aria-hidden="true"></i>
+																</button>
+															</div>
+														</td>
 													</tr>
-												</thead>
-												<tbody>
-													<c:forEach var="pro" items="${products}">
-														<tr>
-															<td>
-																<div class="list-info mrg-top-10">
-																	<img class="thumb-img"
-																		src="<c:url value="/resources/"/>images/${pro.photo}">
-																	<div class="info">
-																		<span class="title">ID: ${pro.productId}</span> <span
-																			class="sub-title">${pro.productName}</span>
-																	</div>
-																</div>
-															</td>
-															<td>
-																<div class="relative mrg-top-15">${pro.quantity}</div>
-															</td>
-															<td>
-																<div class="relative mrg-top-15">$ ${pro.price}</div>
-															</td>
-															<td>
-																<div class="relative mrg-top-15">${pro.decription}</div>
-															</td>
-															<td>
-																<div class="relative mrg-top-15">${pro.manufacture}</div>
-															</td>
-															<td>
-																<div class="relative mrg-top-15">${pro.manufacturingDate}</div>
-															</td>
-															<td>
-																<div class="relative mrg-top-15">${pro.expiryDate}</div>
-															</td>
-															<td>
-																<div class="relative mrg-top-15">${pro.status}</div>
-															</td>
-															<td>
-																<div class="relative mrg-top-15">${pro.categorys.categoryName}</div>
-															</td>
-															<td>
-																<!-- onclick="window.location.href='?lnkEdit&username=${u.username}'" -->
-																<div class="mrg-top-10 text-center">
-																	<button type="button"
-																		onclick="window.location.href='?lnkEdit&productId=${pro.productId}'"
-																		class="btn btn-primary btn-rounded">
-																		<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-																		Sửa
-																	</button>
-																	<button type="button"
-																		class="btn btn-warning btn-rounded"
-																		onclick="window.location.href='<c:url value='?lnkDelete&productId=${pro.productId}' />'">
-																		<i class="fa fa-trash-o" aria-hidden="true"></i> Xóa
-																	</button>
-																</div>
-															</td>
-														</tr>
-													</c:forEach>
-													<%-- <tr>
+												</c:forEach>
+												<%-- <tr>
 														<td>
 															<div class="list-info mrg-top-10">
 																<img class="thumb-img"
@@ -487,35 +479,34 @@
 															</div>
 														</td>
 													</tr> --%>
-												</tbody>
-											</table>
-										</div>
+											</tbody>
+										</table>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<!-- Content Wrapper END -->
-
-				<!-- Footer START -->
-				<footer class="content-footer">
-					<div class="footer">
-						<div class="copyright">
-							<span>Copyright © 2017 <b class="text-dark">Tấn Toàn</b>.
-								All rights reserved.
-							</span> <span class="go-right"> <a href="data-table.html"
-								class="text-gray mrg-right-15">Term &amp; Conditions</a> <a
-								href="data-table.html" class="text-gray">Privacy &amp;
-									Policy</a>
-							</span>
-						</div>
-					</div>
-				</footer>
-				<!-- Footer END -->
 			</div>
-			<!-- Page Container END -->
+			<!-- Content Wrapper END -->
+
+			<!-- Footer START -->
+			<footer class="content-footer">
+				<div class="footer">
+					<div class="copyright">
+						<span>Copyright © 2017 <b class="text-dark">Tấn Toàn</b>.
+							All rights reserved.
+						</span> <span class="go-right"> <a href="data-table.html"
+							class="text-gray mrg-right-15">Term &amp; Conditions</a> <a
+							href="data-table.html" class="text-gray">Privacy &amp; Policy</a>
+						</span>
+					</div>
+				</div>
+			</footer>
+			<!-- Footer END -->
 		</div>
+		<!-- Page Container END -->
+	</div>
 	<script src='<c:url value="/resources/"/>assets/js/vendor.js'></script>
 	<script src='<c:url value="/resources/"/>assets/js/app.min.js'></script>
 	<!-- page plugins js -->

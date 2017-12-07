@@ -110,8 +110,12 @@
 													</div>
 												</form:form>
 											</c:if>
+											<form:form action="accountManager.poly"
+													modelAttribute="account">
 											<p style="color: green;">${message1}</p>
 											<p style="color: red">${message}</p>
+											<form:errors path="*" element="ul"/>
+											</form:form>
 											<!-- Modal START-->
 											<div class="modal fade" id="default-modal">
 												<div class="modal-dialog" role="document">

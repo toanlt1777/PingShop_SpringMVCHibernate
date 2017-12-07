@@ -23,7 +23,7 @@
 							</span> <span class="title">Quản lý tài khoản</span>
 						</a></li>
 						<li class="nav-item dropdown"><a
-							href="accountManager.poly"> <span class="icon-holder">
+							href="customerManager.poly"> <span class="icon-holder">
 									<i class="ei-myspace"></i>
 							</span> <span class="title">Quản lý khách hàng</span>
 						</a></li>

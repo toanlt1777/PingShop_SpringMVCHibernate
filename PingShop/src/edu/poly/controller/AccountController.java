@@ -48,7 +48,7 @@ public class AccountController {
 		Transaction transaction = session.beginTransaction();
 		try {
 			if(errors.hasErrors()){
-				model.addAttribute("message","Insert failed !" );
+				model.addAttribute("message","Thêm tài khoản thất bại, vui lòng nhập lại !" );
 			}else{
 			session.save(accounts);
 			transaction.commit();

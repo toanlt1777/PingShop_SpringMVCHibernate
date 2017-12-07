@@ -105,8 +105,12 @@
 													</div>
 												</div>
 											</c:if>
+											<form:form action="categoryManager.poly"
+															modelAttribute="category">
 											<p style="color: green;">${message1}</p>
 											<p style="color: red">${message}</p>
+											<form:errors path="*" elenmet="ul" />
+											</form:form>
 											<!-- Modal START-->
 											<div class="modal fade" id="default-modal">
 												<div class="modal-dialog" role="document">

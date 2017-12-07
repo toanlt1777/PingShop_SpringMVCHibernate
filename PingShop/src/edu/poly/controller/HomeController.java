@@ -70,4 +70,11 @@ public class HomeController {
 		model.put("listProduct", getProduct1(categoryId));
 		return "index";
 	}
+	@RequestMapping("lnk")
+	public String edit1(ModelMap model,  @RequestParam("productId") String productId) {
+		Session session = factory.getCurrentSession();
+		Product product = (Product) session.get(Product.class,new String(productId));
+		model.addAttribute("product", product);
+		return "single";
+	}
 }

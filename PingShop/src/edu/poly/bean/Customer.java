@@ -27,8 +27,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Customer {
 	@Id
 	@GeneratedValue
-	@Column(name="id")
-	private Integer id;
+	@Column(name="customerId")
+	private Integer customerId;
 	@Size(min=5, max=15,message="The username must be more than 5 and less than 15 characters long !")
 	@NotBlank(message="Can not be empty username !")
 	@Column(name="username")
@@ -38,8 +38,8 @@ public class Customer {
 	@Column(name="password")
 	private String password;
 	@NotBlank(message="Can not be empty name !")
-	@Column(name="name")
-	private String name;
+	@Column(name="customerName")
+	private String customerName;
 	@Temporal(TemporalType.DATE)
 	@Past(message="Must be time in the past")
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
@@ -64,14 +64,15 @@ public class Customer {
 //	@ManyToOne
 //	@JoinColumn(name = "username")
 //	private Account accounts;
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
+	
 	public String getUsername() {
 		return username;
+	}
+	public Integer getCustomerId() {
+		return customerId;
+	}
+	public void setCustomerId(Integer customerId) {
+		this.customerId = customerId;
 	}
 	public void setUsername(String username) {
 		this.username = username;
@@ -82,11 +83,11 @@ public class Customer {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getName() {
-		return name;
+	public String getCustomerName() {
+		return customerName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
 	}
 	public Date getBirthday() {
 		return birthday;

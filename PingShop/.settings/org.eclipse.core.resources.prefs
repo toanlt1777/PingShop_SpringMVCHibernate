@@ -1,2 +1,5 @@
 eclipse.preferences.version=1
 encoding//WebContent/WEB-INF/views/layouts/header.jsp=UTF-8
+encoding//i18n-res/global_jp.properties=UTF-8
+encoding//i18n-res/global_vi.properties=UTF-8
+encoding//src/edu/poly/controller/AccountController.java=UTF-8

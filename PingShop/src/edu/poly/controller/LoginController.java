@@ -2,7 +2,9 @@ package edu.poly.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 
 import org.hibernate.Query;
@@ -27,7 +29,7 @@ public class LoginController {
 		return "login";
 	}
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String Login(Model model, Login logins, HttpServletResponse response) {
+	public String Login(Model model, Login logins, HttpServletResponse response,HttpServletRequest request) {
 			@SuppressWarnings("unused")
 			String redirect= null;
 			model.addAttribute("logins", logins);
@@ -48,22 +50,18 @@ public class LoginController {
 				redirect = "login";
 			} else {
     			try {
+    				HttpSession sessionf = request.getSession();
+    				sessionf.setAttribute("nguoidung", logins.getUsername());
 					response.sendRedirect("accountManager.poly");
 				} catch (Exception e) {
 				}
 		    }
 			return "login";
 	}
-	/*@RequestMapping("/logout")
-    public String logout(HttpSession session ) {
-       session.invalidate();
-       return "redirect:/login.html";
+	@RequestMapping("logout")
+    public String logout(Model model, Login logins,HttpServletRequest request) {
+        HttpSession sessionf = request.getSession();
+        sessionf.invalidate();
+        return login(model,logins);
     }
-	@RequestMapping(value = "/logout")
-    public String logout(HttpServletRequest request) {
-        System.out.println("logout()");
-        HttpSession httpSession = request.getSession();
-        httpSession.invalidate();
-        return "redirect:loginformRichUI.html";
-    }*/
 }
